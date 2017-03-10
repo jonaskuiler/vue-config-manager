@@ -10,21 +10,33 @@ npm install vue-config-manager
 
 This example will add a `debug` variable to the config manager
 
-``` jasvascript
+``` javascript
 Vue.use(VueConfigManager, {
   defaults: {
-    debug: true
+    debug: true,
+    api: {
+      base: 'http://graph.facebook.com/'
+    }
   }
 })
 ```
 
-You can fetch it inside a Vue component by calling `const debug = this.$config('debug')`
+You can retrieve this variable inside a Vue component
+
+``` javascript
+Vue.component('example', {
+  mounted () {
+    const debug = this.$config('debug')
+    const base = this.$config('api.base')
+  }
+})
+```
 
 ### Environment specifics
 
 When you need different configuration for a specific environment
 
-``` jasvascript
+``` javascript
 Vue.use(VueConfigManager, {
   defaults: {
     debug: true
