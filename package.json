@@ -1,7 +1,7 @@
 {
   "name": "vue-config-manager",
   "version": "0.2.1",
-  "description": "",
+  "description": "A Vue configuration and environment manager",
   "main": "dist/vue-config-manager.js",
   "scripts": {
     "commit": "git-cz",
@@ -22,14 +22,22 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jonaskuiler/vue-config-manager"
   },
-  "keywords": [],
+  "keywords": [
+    "Vue",
+    "configuration",
+    "environment",
+    "hostname",
+    "config",
+    "plugin",
+    "manager"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/jonaskuiler/vue-config-manager/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/jonaskuiler/vue-config-manager",
   "devDependencies": {
     "babel-eslint": "^7.0.0",
     "babel-plugin-transform-runtime": "^6.23.0",
