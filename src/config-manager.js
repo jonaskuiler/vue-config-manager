@@ -11,8 +11,8 @@ let config = {}
  * @type {Object}
  */
 const defaultOptions = {
-  environment: null,
-  hostNames: {},
+  environment: {},
+  hosts: {},
   defaults: {}
 }
 
@@ -32,16 +32,16 @@ const warn = (...args) => console.warn.apply(null, '[vue-config-manager]:'.conca
 /**
  * Get configuration for the browser's current location
  */
-const getHostConfig = (hostNames) => {
+const getHostConfig = (hosts) => {
   if (!isBrowser) {
     return {}
   }
 
-  const key = Object.keys(hostNames).find(hostName => {
-    return window.location.hostname.indexOf(hostName) !== -1
+  const key = Object.keys(hosts).find(host => {
+    return window.location.hostname.indexOf(host) !== -1
   })
 
-  return hostNames[key] || {}
+  return (hosts[key] || {})
 }
 
 /**
@@ -50,17 +50,17 @@ const getHostConfig = (hostNames) => {
  * @param  {[type]} options [description]
  * @return {[type]}         [description]
  */
-export const mergeConfig = (options = defaultOptions) => {
-  const { environment, hostNames, defaults } = options
+export const mergeConfig = (options) => {
+  const { environment, hosts, defaults } = Object.assign(defaultOptions, options)
   const isObject = value => typeof value === 'object'
-  const validOptions = [environment, hostNames, defaults].some(isObject)
+  const validOptions = [environment, hosts, defaults].some(isObject)
 
   if (!validOptions) {
     warn('The provided options are incorrect')
     return
   }
 
-  const host = getHostConfig(hostNames)
+  const host = getHostConfig(hosts)
 
   return Object.assign({}, defaults, host, environment)
 }
