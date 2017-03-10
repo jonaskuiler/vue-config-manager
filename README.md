@@ -1,3 +1,14 @@
+<p align="center">
+  <img src="http://i.imgur.com/o2edPcD.png" width="320" />
+  <br><br>
+  <a href="https://www.npmjs.com/package/vue-config-manager">
+    <img src="https://img.shields.io/npm/v/vue-config-manager.svg" alt="npm version">
+  </a>
+  <a href="https://www.npmjs.com/package/vue-config-manager">
+    <img src="https://img.shields.io/npm/dt/vue-config-manager.svg">
+  </a>
+</p>
+
 # vue-config-manager
 > A configuration manager for Vue
 
