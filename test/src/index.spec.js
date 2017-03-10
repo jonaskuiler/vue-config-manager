@@ -27,10 +27,10 @@ describe('Config manager', () => {
     const localApi = 'http://vue-config-manager.com/api'
 
     const options = {
-      environment: {
+      defaults: {
         api: environmentApi
       },
-      local: {
+      environment: {
         api: localApi
       }
     }
