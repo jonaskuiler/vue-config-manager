@@ -1,3 +1,6 @@
+# Vue Configuration Manager
+> A configuration manager for Vue
+
 <p align="center">
   <img src="http://i.imgur.com/o2edPcD.png" width="320" />
   <br><br>
@@ -8,9 +11,6 @@
     <img src="https://img.shields.io/npm/dt/vue-config-manager.svg">
   </a>
 </p>
-
-# vue-config-manager
-> A configuration manager for Vue
 
 ### NPM
 ``` bash
