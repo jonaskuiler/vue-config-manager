@@ -8,7 +8,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai'],
     reporters: ['mocha'],
     files: [
-        './index.js',
+      './index.js'
     ],
     plugins: [
         'karma-phantomjs-launcher',
@@ -44,7 +44,7 @@ module.exports = function (config) {
       }
     },
     webpackMiddleware: {
-        noInfo: true
+      noInfo: true
     }
   });
 };
