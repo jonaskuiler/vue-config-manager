@@ -11,8 +11,37 @@ let config = {}
  * @type {Object}
  */
 const defaultOptions = {
-  environment: {},
+  environment: null,
+  hostNames: {},
   defaults: {}
+}
+
+/**
+ * Determine if the plugin is running in a browser environment
+ */
+const isBrowser = typeof window !== 'undefined'
+
+/**
+ * Utils
+ */
+
+/* eslint-disable no-console */
+const warn = (...args) => console.warn.apply(null, '[vue-config-manager]:'.concat(args))
+/* eslint-enable no-console */
+
+/**
+ * Get configuration for the browser's current location
+ */
+const getHostConfig = (hostNames) => {
+  if (!isBrowser) {
+    return {}
+  }
+
+  const key = Object.keys(hostNames).find(hostName => {
+    return window.location.hostname.indexOf(hostName) !== -1
+  })
+
+  return hostNames[key] || {}
 }
 
 /**
@@ -22,9 +51,18 @@ const defaultOptions = {
  * @return {[type]}         [description]
  */
 export const mergeConfig = (options = defaultOptions) => {
-  const { environment, defaults } = options
+  const { environment, hostNames, defaults } = options
+  const isObject = value => typeof value === 'object'
+  const validOptions = [environment, hostNames, defaults].some(isObject)
 
-  return Object.assign({}, defaults, environment)
+  if (!validOptions) {
+    warn('The provided options are incorrect')
+    return
+  }
+
+  const host = getHostConfig(hostNames)
+
+  return Object.assign({}, defaults, host, environment)
 }
 
 /**
