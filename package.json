@@ -1,6 +1,6 @@
 {
   "name": "vue-config-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/vue-config-manager.js",
   "scripts": {
