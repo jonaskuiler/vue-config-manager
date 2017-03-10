@@ -59,9 +59,21 @@ Vue.use(VueConfigManager, {
 })
 ```
 
-### Roadmap
-- Load configuration asynchronously
-- Overriding configuration based on URL
+However, if you're not running in a server environment you can also get desired configuration based on the hostname of your app.
+
+``` javascript
+Vue.use(VueConfigManager, {
+  defaults: {
+    debug: true
+  },
+
+  hosts: {
+    'localhost': {
+      debug: false
+    }
+  }
+})
+```
 
 ### Development Setup
 
