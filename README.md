@@ -1,15 +1,16 @@
 # vue-config-manager
-> Configuration manager for Vue
+> A configuration manager for Vue
 
-### Installation
-* Run `yarn add vue-config-manager` or `npm install --save vue-config-manager`
-* Import the plugin in the entry point of your app `import VueConfigManager from 'vue-config-manager'`
-
-### Configuration
-
-This basic example will add a `debug` variable to the config manager
-
+### NPM
+``` bash
+npm install vue-config-manager
 ```
+
+### Basic usage
+
+This example will add a `debug` variable to the config manager
+
+``` jasvascript
 Vue.use(VueConfigManager, {
   defaults: {
     debug: true
@@ -21,18 +22,36 @@ You can fetch it inside a Vue component by calling `const debug = this.$config('
 
 ### Environment specifics
 
-When you need different configuration for an environment you can override it by adding an `environment` property to the plugin options.
-The environment is responsible for providing these variables because you don't want your build/distribution script to determine these variables.
-This way you can drop your build anywhere you want and the plugin will manage the environment variables you put in the options object.
+When you need different configuration for a specific environment
 
-```
+``` jasvascript
 Vue.use(VueConfigManager, {
   defaults: {
     debug: true
   },
 
-  enviromnent: {
+  environment: {
     debug: false
   }
 })
+```
+
+### Roadmap
+- Load configuration asynchronously
+- Overriding configuration based on URL
+
+### Development Setup
+
+``` bash
+# install deps
+npm install
+
+# build dist files
+npm run build
+
+# serve examples at localhost:8080
+npm run dev
+
+# run all tests
+npm test
 ```
