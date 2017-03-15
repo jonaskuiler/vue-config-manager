@@ -22,6 +22,7 @@ npm install vue-config-manager
 This example will add a `debug` variable to the config manager
 
 ``` javascript
+import VueConfigManager from 'vue-config-manager'
 Vue.use(VueConfigManager, {
   defaults: {
     debug: true,
