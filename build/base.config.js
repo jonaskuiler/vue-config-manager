@@ -6,10 +6,10 @@ const config = require('../package.json')
 
 module.exports = {
   entry: [
-    './src'
+    __dirname + '/../src'
   ],
   output: {
-    path: './dist',
+    path: __dirname + '/../dist',
     publicPath: '/',
     filename: `${config.name}.js`,
     libraryTarget: 'umd'
