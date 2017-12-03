@@ -1,7 +1,5 @@
 var webpackConfig = require('../build/env/dev');
 
-delete webpackConfig.entry
-
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
